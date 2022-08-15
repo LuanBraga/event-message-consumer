@@ -20,9 +20,15 @@ export class NotificationIndicatorComponent implements OnInit {
 
     const eventIdList = document.querySelector('ul');
 
+    const eventIdSpan = document.querySelector('span');
+
     // eventSource.onmessage = (e) => {
     //   console.log(e.data);
     // }
+
+    eventSource.addEventListener('open', (e) => {
+      console.log(e);
+    });
 
     eventSource.addEventListener('message', (e) => {
       let m = e.data as Message;
@@ -36,9 +42,18 @@ export class NotificationIndicatorComponent implements OnInit {
       console.log(m);
     });
 
-    eventSource.addEventListener('open', (e) => {
-      console.log(e);
+    eventSource.addEventListener('delete message', (e) => {
+      let m = (<any>e).data;
+
+      const newElement = document.createElement("p");
+
+      newElement.textContent = `${m}`;
+
+      eventIdSpan?.appendChild(newElement);
+
+      console.log(m);
     });
+
   }
 
 }
