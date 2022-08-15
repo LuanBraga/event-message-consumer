@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "event-message-consumer"
+  "defaultProject": "event-message-consumer",
+  "cli": {
+    "analytics": "933bf31c-71ab-4733-8318-c54f7e3b2fec"
+  }
 }

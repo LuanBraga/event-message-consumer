@@ -16,12 +16,9 @@ export class NotificationIndicatorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const eventSource = new EventSource('http://localhost:8080/api/v1/messages/sse-emitter');
-    
+    const eventSource = new EventSource('http://localhost:8080/api/v1/sse/sse-emitter');
+
     const eventIdList = document.querySelector('ul');
-
-    // const eventSource = new EventSource('http://localhost:8080/api/v1/events/sse-emitter');
-
 
     // eventSource.onmessage = (e) => {
     //   console.log(e.data);
